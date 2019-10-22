@@ -12,7 +12,7 @@ const RegistrationStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column"
   },
-  passwordMatchError: {
+  passwordError: {
     color: "red"
   },
   noError: {
