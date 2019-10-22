@@ -10,13 +10,13 @@ const SignUp = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = values => {
-    if (values.password !== values.confirmPassword) {
+    if (values.password1 !== values.password2) {
       setPasswordMatchError(true);
     } else {
       setPasswordMatchError(false);
     }
 
-    if (values.password.length < 8) {
+    if (values.password1.length < 8) {
       setPasswordLengthError(true);
     } else {
       setPasswordLengthError(false);
@@ -26,12 +26,12 @@ const SignUp = () => {
     <div>
       <h1 className={classes.header}>Sign Up</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
         <label>Username</label>
         <input name="username" ref={register} required />
 
         <label>Password</label>
-        <input name="password" ref={register} type="password" required />
+        <input name="password1" ref={register} type="password" required />
         <p
           className={
             passwordMatchError ? classes.passwordMatchError : classes.noError
@@ -48,7 +48,7 @@ const SignUp = () => {
         </p>
 
         <label>Confirm Password</label>
-        <input name="confirmPassword" ref={register} type="password" required />
+        <input name="passsword2" ref={register} type="password" required />
         <p
           className={
             passwordMatchError ? classes.passwordMatchError : classes.noError
@@ -66,7 +66,7 @@ const SignUp = () => {
         <input type="submit" />
       </form>
       <Link to="/">
-        <button>Already have an account</button>
+        <p className={classes.toAccount}>I already have an account</p>
       </Link>
     </div>
   );

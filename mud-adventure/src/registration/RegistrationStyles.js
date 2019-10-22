@@ -6,13 +6,21 @@ const RegistrationStyles = makeStyles(theme => ({
     border: "1px solid red"
   },
   header: {
-    color: "blue"
+    fontSize: "3rem"
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column"
   },
   passwordMatchError: {
     color: "red"
   },
   noError: {
     display: "none"
+  },
+  toAccount: {
+    color: "blue",
+    fontSize: "1.3rem"
   }
 }));
 
