@@ -4,6 +4,15 @@ const RegistrationStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     border: "1px solid red"
+  },
+  header: {
+    color: "blue"
+  },
+  passwordMatchError: {
+    color: "red"
+  },
+  noError: {
+    display: "none"
   }
 }));
 
