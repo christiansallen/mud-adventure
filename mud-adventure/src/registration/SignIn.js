@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import RegistrationStyles from "./RegistrationStyles";
 import useForm from "react-hook-form";
 import axios from "axios";
+import { getThemeProps } from "@material-ui/styles";
 
-const SignIn = () => {
+const SignIn = props => {
   const classes = RegistrationStyles();
   const { register, handleSubmit } = useForm();
 
@@ -13,6 +14,10 @@ const SignIn = () => {
       .post("https://adventure-text.herokuapp.com/api/login/", values)
       .then(res => {
         console.log(res);
+        localStorage.setItem("token", res.data.key);
+      })
+      .then(() => {
+        props.history.push("/game");
       })
       .catch(err => {
         console.log(err);
