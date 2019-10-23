@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignUpContainer from "./src/SignUpContainer"
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import SignUpContainer from "./registration/SignUpContainer";
+
 import './index.css'
 
 const App = () => (
-  <MuiThemeProvider>
+  <div>
     <SignUpContainer />
-  </MuiThemeProvider>
+  </div>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));

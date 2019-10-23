@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SignUpForm from "./SignUpForm.js";
+import SignUpForm from "@material-ui/SignUpForm.js";
 const axios = require("axios");
 const FormValidators = require("./validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
