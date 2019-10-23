@@ -1,8 +1,8 @@
-const themeStyles = {
-  typography: {
-    fontSize: "3rem"
-    //fontFamily: ''
-  }
-};
+// const themeStyles = {
+//   typography: {
+//     fontSize: "3rem"
+//     //fontFamily: ''
+//   }
+// };
 
-export default themeStyles;
+// export default themeStyles;

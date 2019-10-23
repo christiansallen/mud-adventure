@@ -1,78 +1,85 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import RegistrationStyles from "./RegistrationStyles";
-import useForm from "react-hook-form";
+mport React from "react";
+import FlatButton from "material-ui/FlatButton";
+import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
+import PasswordStr from "./PasswordStr";
+import "./style.css";
 
-const SignUp = () => {
-  const classes = RegistrationStyles();
-  const [passwordMatchError, setPasswordMatchError] = useState(false);
-  const [passwordLengthError, setPasswordLengthError] = useState(false);
-
-  const { register, handleSubmit } = useForm();
-  const onSubmit = values => {
-    if (values.password1 !== values.password2) {
-      setPasswordMatchError(true);
-    } else {
-      setPasswordMatchError(false);
-    }
-
-    if (values.password1.length < 8) {
-      setPasswordLengthError(true);
-    } else {
-      setPasswordLengthError(false);
-    }
-  };
+const SignUpForm = ({
+  history,
+  onSubmit,
+  onChange,
+  errors,
+  user,
+  score,
+  btnTxt,
+  type,
+  pwMask,
+  onPwChange
+}) => {
   return (
-    <div>
-      <h1 className={classes.header}>Sign Up</h1>
+    <div className="loginBox">
+      <h1>Sign Up</h1>
+      {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
-      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-        <label>Username</label>
-        <input name="username" ref={register} required />
+      <form onSubmit={onSubmit}>
+        <TextField
+          name="username"
+          floatingLabelText="user name"
+          value={user.username}
+          onChange={onChange}
+          errorText={errors.username}
+        />
+        <TextField
+          name="email"
+          floatingLabelText="email"
+          value={user.email}
+          onChange={onChange}
+          errorText={errors.email}
+        />
+        <TextField
+          type={type}
+          name="password"
+          floatingLabelText="password"
+          value={user.password}
+          onChange={onPwChange}
+          errorText={errors.password}
+        />
 
-        <label>Password</label>
-        <input name="password1" ref={register} type="password" required />
-        <p
-          className={
-            passwordMatchError ? classes.passwordMatchError : classes.noError
-          }
-        >
-          Passwords don't match
-        </p>
-        <p
-          className={
-            passwordLengthError ? classes.passwordMatchError : classes.noError
-          }
-        >
-          Password needs to be 8 characters or longer.
-        </p>
-
-        <label>Confirm Password</label>
-        <input name="passsword2" ref={register} type="password" required />
-        <p
-          className={
-            passwordMatchError ? classes.passwordMatchError : classes.noError
-          }
-        >
-          Passwords don't match
-        </p>
-        <p
-          className={
-            passwordLengthError ? classes.passwordMatchError : classes.noError
-          }
-        >
-          Password needs to be 8 characters or longer.
-        </p>
-        <input type="submit" />
+        <div className="pwStrRow">
+          {score >= 1 && (
+            <div>
+              <PasswordStr score={score} /> 
+              <FlatButton 
+                className="pwShowHideBtn" 
+                label={btnTxt} onClick={pwMask} 
+                style={{position: 'relative', left: '50%', transform: 'translateX(-50%)'}} 
+              />
+            </div>
+            )} 
+        </div>
+        <TextField
+          type={type}
+          name="pwconfirm"
+          floatingLabelText="confirm password"
+          value={user.pwconfirm}
+          onChange={onChange}
+          errorText={errors.pwconfirm}
+        />
+        <br />
+        <RaisedButton
+          className="signUpSubmit"
+          primary={true}
+          type="submit"
+          label="submit"
+        />
       </form>
-      <Link to="/">
-        <p className={classes.toAccount}>I already have an account</p>
-      </Link>
+      <p>
+        Aleady have an account? <br />
+        <a href="/">Log in here</a>
+      </p>
     </div>
   );
 };
 
-export default SignUp;
-
-//Username already exists
-//Password isn't 8 characters long
+export default SignUpForm;
