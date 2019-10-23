@@ -1,27 +1,13 @@
-import { makeStyles } from "@material-ui/core";
+jQuery(document).ready(function($) {
+	tab = $('.tabs h3 a');
 
-const RegistrationStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    border: "1px solid red"
-  },
-  header: {
-    fontSize: "3rem"
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  passwordMatchError: {
-    color: "red"
-  },
-  noError: {
-    display: "none"
-  },
-  toAccount: {
-    color: "blue",
-    fontSize: "1.3rem"
-  }
-}));
+	tab.on('click', function(event) {
+		event.preventDefault();
+		tab.removeClass('active');
+		$(this).addClass('active');
 
-export default RegistrationStyles;
+		tab_content = $(this).attr('href');
+		$('div[id$="tab-content"]').removeClass('active');
+		$(tab_content).addClass('active');
+	});
+});
