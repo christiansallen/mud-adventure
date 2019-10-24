@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core";
 const GameStyles = makeStyles({
   container: {
     display: "flex",
-    border: "1px solid red",
     maxWidth: "1500px",
     width: "100%",
     height: "100vh"
@@ -56,6 +55,16 @@ const GameStyles = makeStyles({
     display: "flex",
     margin: "0 auto",
     flexDirection: "column"
+  },
+  instructions: {
+    fontSize: "2rem"
+  },
+  room: {
+    color: "red"
+  },
+  row: {
+    color: "blue",
+    display: "flex"
   }
 });
 

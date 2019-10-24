@@ -29,7 +29,7 @@ const SignUp = () => {
       setPasswordLengthError(false);
       setPasswordMatchError(false);
       axios
-        .post("http://adventure-text.herokuapp.com/api/registration/", values)
+        .post("https://adventure-text.herokuapp.com/api/registration/", values)
         .then(res => {
           console.log(res);
         })
