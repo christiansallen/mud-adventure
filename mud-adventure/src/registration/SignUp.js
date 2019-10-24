@@ -10,6 +10,7 @@ const SignUp = props => {
   const [passwordLengthError, setPasswordLengthError] = useState(false);
   const { register, handleSubmit } = useForm();
   const onSubmit = values => {
+    console.log(values);
     if (values.password1.length < 8 && values.password1 === values.password2) {
       setPasswordLengthError(true);
       setPasswordMatchError(false);
@@ -47,7 +48,7 @@ const SignUp = props => {
 
       <form onSubmit={handleSubmit(onSubmit)} className={classes.formSignup}>
         <label>Username</label>
-        <input name="username" ref={classes.register} required />
+        <input name="username" ref={register} required />
 
         <label>Password</label>
         <input name="password1" ref={register} type="password" required />
