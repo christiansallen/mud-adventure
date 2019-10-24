@@ -61,7 +61,7 @@ const GameStyles = makeStyles({
     fontSize: "2rem"
   },
   room: {
-    color: "red",
+    color: "green",
     display: "flex"
   },
   row: {
@@ -74,6 +74,12 @@ const GameStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around"
+  },
+  allArrows: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 

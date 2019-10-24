@@ -139,6 +139,7 @@ const Game = props => {
       </div>
       <div className={classes.mainSection}>
         <div className={classes.mapSection}>
+          <button onClick={logout}>Logout</button>
           <GameMap
             currentRoom={currentPlayer.room_id}
             current_coordinates={[
@@ -147,7 +148,6 @@ const Game = props => {
             ]}
           />
         </div>
-        <button onClick={logout}>Logout</button>
       </div>
     </div>
   );
