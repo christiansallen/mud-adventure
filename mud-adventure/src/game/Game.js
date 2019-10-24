@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GameStyles from "./GameStyles.js";
 import axios from "axios";
+import GameMap from "./GameMap";
 
 const Game = props => {
   const classes = GameStyles();
@@ -64,6 +65,7 @@ const Game = props => {
       })
       .then(res => {
         setCurrentPlayer({ ...res.data, error_msg: "" });
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   }, []);
@@ -95,6 +97,7 @@ const Game = props => {
     <div className={classes.container}>
       <div className={classes.sideBar}>
         <h1 className={classes.header}>MUD Adventure</h1>
+        <h2 className={classes.instructions}>Use arrow keys to move.</h2>
         <div className={classes.headerAndText}>
           <h2 className={classes.headertwo}>Name: </h2>
           <p className={classes.text}> {currentPlayer.name}</p>
@@ -125,7 +128,7 @@ const Game = props => {
       </div>
       <div className={classes.mainSection}>
         <div className={classes.mapSection}>
-          <h1>Map section</h1>
+          <GameMap />
         </div>
         <button onClick={logout}>Logout</button>
       </div>
