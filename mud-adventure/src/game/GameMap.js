@@ -84,30 +84,30 @@ const GameMap = ({ currentRoom, current_coordinates }) => {
             <div className={classes.room} key={[x, y]}>
               {x === current_coordinates[0] && y === current_coordinates[1] ? (
                 <div className={classes.allArrows}>
-                  <div>
-                    {north > 0 ? <FontAwesomeIcon icon={faArrowUp} /> : " "}
+                  <div className={north > 0 ? classes.show : classes.hidden}>
+                    <FontAwesomeIcon icon={faArrowUp} />
                   </div>
                   <div>
                     {west > 0 ? <FontAwesomeIcon icon={faArrowLeft} /> : " "}
-                    <FontAwesomeIcon icon={faSquare} />{" "}
+                    <FontAwesomeIcon icon={faSquare} />
                     {east > 0 ? <FontAwesomeIcon icon={faArrowRight} /> : " "}
                   </div>
-                  <div>
-                    {south > 0 ? <FontAwesomeIcon icon={faArrowDown} /> : " "}
+                  <div className={south > 0 ? classes.show : classes.hidden}>
+                    <FontAwesomeIcon icon={faArrowDown} />
                   </div>
                 </div>
               ) : (
                 <div className={classes.allArrows}>
-                  <div>
-                    {north > 0 ? <FontAwesomeIcon icon={faArrowUp} /> : " "}
+                  <div className={north > 0 ? classes.show : classes.hidden}>
+                    <FontAwesomeIcon icon={faArrowUp} />
                   </div>
                   <div>
                     {west > 0 ? <FontAwesomeIcon icon={faArrowLeft} /> : " "}
-                    <FontAwesomeIcon icon={regSquare} />{" "}
+                    <FontAwesomeIcon icon={regSquare} />
                     {east > 0 ? <FontAwesomeIcon icon={faArrowRight} /> : " "}
                   </div>
-                  <div>
-                    {south > 0 ? <FontAwesomeIcon icon={faArrowDown} /> : " "}
+                  <div className={south > 0 ? classes.show : classes.hidden}>
+                    <FontAwesomeIcon icon={faArrowDown} />
                   </div>
                 </div>
               )}
