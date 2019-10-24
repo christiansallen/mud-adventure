@@ -54,17 +54,20 @@ const GameStyles = makeStyles({
   mainSection: {
     display: "flex",
     margin: "0 auto",
-    flexDirection: "column"
+    flexDirection: "column",
+    width: "50%"
   },
   instructions: {
     fontSize: "2rem"
   },
   room: {
-    color: "red"
+    color: "red",
+    display: "flex"
   },
   row: {
     color: "blue",
-    display: "flex"
+    display: "flex",
+    justifyContent: "space-between"
   }
 });
 
