@@ -3,11 +3,11 @@ import GameStyles from "./GameStyles.js";
 import axios from "axios";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { far } from "@fortawesome/free-brands-svg-icons";
-import { farSquare } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-library.add(far, farSquare);
+library.add(fab, faSquare);
 
 const GameMap = () => {
   const classes = GameStyles();
@@ -52,7 +52,7 @@ const GameMap = () => {
       for (let x = minX; x <= maxX; x++) {
         rowMap.push(
           <div className={classes.room}>
-            <FontAwesomeIcon icon="farSquare" />
+            <FontAwesomeIcon icon={faSquare} size="2x" />
           </div>
         );
       }
