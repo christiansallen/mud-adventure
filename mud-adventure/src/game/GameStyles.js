@@ -68,6 +68,12 @@ const GameStyles = makeStyles({
     color: "blue",
     display: "flex",
     justifyContent: "space-between"
+  },
+  gridContainer: {
+    height: "500px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around"
   }
 });
 

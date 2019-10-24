@@ -4,8 +4,7 @@ import RegistrationStyles from "./RegistrationStyles";
 import useForm from "react-hook-form";
 import axios from "axios";
 
-
-const SignUp = () => {
+const SignUp = props => {
   const classes = RegistrationStyles();
   const [passwordMatchError, setPasswordMatchError] = useState(false);
   const [passwordLengthError, setPasswordLengthError] = useState(false);
@@ -33,6 +32,9 @@ const SignUp = () => {
         .post("https://adventure-text.herokuapp.com/api/registration/", values)
         .then(res => {
           console.log(res);
+        })
+        .then(() => {
+          props.history.push("/");
         })
         .catch(err => {
           console.log(err);
