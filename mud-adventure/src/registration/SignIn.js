@@ -27,7 +27,7 @@ const SignIn = props => {
   return (
     <div className={classes.container}>
       <h1 className={classes.header}>Sign In</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={classes.formSignup}>
         <label>Username</label>
         <input name="username" ref={register} required />
 
@@ -35,13 +35,16 @@ const SignIn = props => {
         <input name="password" ref={register} type="password" required />
 
         <input type="submit" />
-      </form>
+      
       <Link to="/signup">
+      
         <button>Sign Up</button>
+    
       </Link>
       <Link to="/game">
         <button>Game</button>
       </Link>
+      </form>
     </div>
   );
 };

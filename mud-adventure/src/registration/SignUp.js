@@ -4,6 +4,7 @@ import RegistrationStyles from "./RegistrationStyles";
 import useForm from "react-hook-form";
 import axios from "axios";
 
+
 const SignUp = () => {
   const classes = RegistrationStyles();
   const [passwordMatchError, setPasswordMatchError] = useState(false);
@@ -39,12 +40,12 @@ const SignUp = () => {
     }
   };
   return (
-    <div>
-      <h1 className={classes.header}>Sign Up</h1>
+    <div className={classes.container}>
+      <h1 className={classes.headerSignup}>Sign Up</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={classes.formSignup}>
         <label>Username</label>
-        <input name="username" ref={register} required />
+        <input name="username" ref={classes.register} required />
 
         <label>Password</label>
         <input name="password1" ref={register} type="password" required />
@@ -82,7 +83,7 @@ const SignUp = () => {
         <input type="submit" />
       </form>
       <Link to="/">
-        <p className={classes.toAccount}>I already have an account</p>
+        <p className={classes.toAccountSignup}>I already have an account</p>
       </Link>
     </div>
   );
