@@ -6,12 +6,6 @@ import GameMap from "./GameMap";
 const Game = props => {
   const classes = GameStyles();
 
-  const [playerLocation, setPlayerLocation] = useState({
-    x: 0,
-    y: 0
-  });
-  //   const [inRoom, setInRoom] = useState(false);
-  //   const [worldArray, setWorldArray] = useState();
   const [currentPlayer, setCurrentPlayer] = useState({
     description: "",
     name: "",
@@ -23,6 +17,12 @@ const Game = props => {
     x_coordinates: 0,
     y_coordinates: 0
   });
+
+  const [playerLocation, setPlayerLocation] = useState({
+    x: 0,
+    y: 0
+  });
+
   const [roomOtherPlayers, setRoomOtherPlayers] = useState([]);
 
   const [direction, setDirection] = useState("");
@@ -65,6 +65,10 @@ const Game = props => {
       })
       .then(res => {
         setCurrentPlayer({ ...res.data, error_msg: "" });
+        setPlayerLocation({
+          x: currentPlayer.x_coordinates,
+          y: currentPlayer.y_coordinates
+        });
         console.log(res.data);
       })
       .catch(err => console.log(err));
@@ -82,6 +86,10 @@ const Game = props => {
       .then(res => {
         setRoomOtherPlayers(res.data.other_players);
         setCurrentPlayer(res.data);
+        setPlayerLocation({
+          x: currentPlayer.x_coordinates,
+          y: currentPlayer.y_coordinates
+        });
       })
       .catch(err => console.log(err));
     return () => setDirection("");
@@ -92,6 +100,9 @@ const Game = props => {
     localStorage.removeItem("token");
     props.history.push("/");
   };
+
+  console.log(playerLocation);
+  console.log(currentPlayer);
 
   return (
     <div className={classes.container}>
@@ -128,7 +139,13 @@ const Game = props => {
       </div>
       <div className={classes.mainSection}>
         <div className={classes.mapSection}>
-          <GameMap />
+          <GameMap
+            currentRoom={currentPlayer.room_id}
+            current_coordinates={[
+              currentPlayer.x_coordinates,
+              currentPlayer.y_coordinates
+            ]}
+          />
         </div>
         <button onClick={logout}>Logout</button>
       </div>
