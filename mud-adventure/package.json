@@ -17,7 +17,7 @@
     "react-hook-form": "^3.24.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "validator": "^11.1.0",
+    "validator": "^13.7.0",
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
